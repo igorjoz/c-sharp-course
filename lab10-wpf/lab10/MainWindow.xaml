@@ -12,6 +12,12 @@
             <Button Content="Add" Click="AddButton_Click" VerticalAlignment="Center"/>
             <Button Content="Delete" Click="DeleteButton_Click" VerticalAlignment="Center"/>
         </ToolBar>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" CanUserAddRows="True" CanUserDeleteRows="True" IsReadOnly="False" CanUserSortColumns="True" Margin="10"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True" IsReadOnly="False" CanUserSortColumns="True" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Model" Binding="{Binding Model}" SortMemberPath="Model"/>
+                <DataGridTextColumn Header="Engine Type" Binding="{Binding Engine.EngineType}" SortMemberPath="Engine.EngineType"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding Year}" SortMemberPath="Year"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </DockPanel>
 </Window>

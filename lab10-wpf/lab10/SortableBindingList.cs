@@ -25,7 +25,6 @@ public class SortableBindingList<T> : BindingList<T>
 
             if (items != null)
             {
-                // Obsługa zagnieżdżonych właściwości
                 Func<T, object> keySelector = item =>
                 {
                     object value = item;
@@ -52,12 +51,7 @@ public class SortableBindingList<T> : BindingList<T>
             sortDirection = direction;
             isSorted = true;
 
-            // Raise the ListChanged event so bound controls refresh their data.
             this.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
-        }
-        else
-        {
-            throw new NotSupportedException("Cannot sort by " + prop.Name + ". This " + prop.PropertyType.ToString() + " does not implement IComparable");
         }
     }
 
@@ -91,7 +85,7 @@ public class SortableBindingList<T> : BindingList<T>
                 return i;
             }
         }
-        return -1; // Not found
+        return -1;
     }
 
     public int Find(PropertyDescriptor prop, object key)
