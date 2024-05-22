@@ -271,7 +271,7 @@ namespace lab10
 
         private static void Action(Car a)
         {
-            MessageBox.Show("2. Model: " + a.Model + " Engine: " + a.Engine + " Years: " + a.Year);
+            MessageBox.Show("2. Model: " + a.Model + " Engine: " + a.Engine.EngineType + " Year: " + a.Year);
         }
 
     }
